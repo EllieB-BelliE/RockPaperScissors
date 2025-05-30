@@ -1,30 +1,28 @@
 import random
-
-print("Welcome to RockPaperScissors!\n")
-print("This is my branch!\n")
-
-user_choice = input("Pick one Rock, Paper, or Scissors.\n> ")
-
 cpu_options = ["Rock","Paper","Scissors"]
-cpu_choice = random.choice(cpu_options)
 
-print("You chose " + user_choice + ", I chose " + cpu_choice)
-if cpu_choice == user_choice:
-    print ("Tie!")
-elif cpu_choice == 'Rock':
-    if user_choice == 'Paper':
-        print("You win!")
-    else: 
-        print("You lose!")
+def main():
+    print("Welcome to RockPaperScissors!\n")
+    print("This is my branch!\n")
 
-elif cpu_choice == 'Paper':
-    if user_choice == 'Rock':
-        print("You lose!")
+    user_choice = input("Pick one Rock, Paper, or Scissors.\n> ")
+    cpu_choice = random.choice(cpu_options)
+
+    print("You chose " + user_choice + ", I chose " + cpu_choice)
+    if cpu_choice == user_choice:
+        print ("Tie!")
+    elif cpu_choice == 'Rock': 
+        lose() if user_choice == 'Paper' else win()
+    elif cpu_choice == 'Paper':
+        lose() if user_choice == 'Rock' else win()
     else:
-        print("You win!")
+        win() if user_choice == 'Rock' else lose()
 
-else:
-    if user_choice == 'Rock':
-        print("You win")
-    else:
-        print("You lose")
+def win():
+    print("You win!")
+
+def lose():
+    print("You lose!")
+
+
+main()
