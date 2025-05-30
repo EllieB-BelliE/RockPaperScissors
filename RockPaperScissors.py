@@ -6,6 +6,8 @@ def main():
     print("This is my branch!\n")
 
     user_choice = input("Pick one Rock, Paper, or Scissors.\n> ")
+    while user_choice not in cpu_options:
+        user_choice = input("Please enter a valid option from the list, Rock, Paper ,Scissors\n> ")
     cpu_choice = random.choice(cpu_options)
 
     print("You chose " + user_choice + ", I chose " + cpu_choice)
